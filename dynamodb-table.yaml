@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for HITL approval workflow
+
+Parameters:
+  TableName:
+    Type: String
+    Default: hitl-approvals
+    Description: Name of the DynamoDB table
+
+Resources:
+  HITLApprovalsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref TableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: session_id
+          AttributeType: S
+        - AttributeName: interrupt_id
+          AttributeType: S
+        - AttributeName: status
+          AttributeType: S
+        - AttributeName: created_at
+          AttributeType: S
+      KeySchema:
+        - AttributeName: session_id
+          KeyType: HASH
+        - AttributeName: interrupt_id
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: status-index
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: created_at
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Purpose
+          Value: HITL-Workflow
+
+Outputs:
+  TableName:
+    Description: DynamoDB table name
+    Value: !Ref HITLApprovalsTable
+  TableArn:
+    Description: DynamoDB table ARN
+    Value: !GetAtt HITLApprovalsTable.Arn
