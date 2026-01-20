@@ -56,7 +56,7 @@ def invoke_agentcore(payload: dict, session_id: str = None) -> dict:
     if LOCAL_MODE:
         return invoke_local(payload, session_id)
     else:
-        return invoke_aws(payload, session_id)
+        return invoke_runtime(payload, session_id)
 
 
 def invoke_local(payload: dict, session_id: str = None) -> dict:
@@ -82,7 +82,7 @@ def invoke_local(payload: dict, session_id: str = None) -> dict:
         return {"error": str(e)}
 
 
-def invoke_aws(payload: dict, session_id: str = None) -> dict:
+def invoke_runtime(payload: dict, session_id: str = None) -> dict:
     """AWS AgentCore Runtimeを呼び出す（boto3 SDK）"""
     import boto3
     from decimal import Decimal
