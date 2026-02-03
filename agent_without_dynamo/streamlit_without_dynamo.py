@@ -23,7 +23,7 @@ LOCAL_ENDPOINT = "http://localhost:9080"
 
 # AWS デプロイ用（LOCAL_MODE = False の場合に使用）
 AWS_REGION = "ap-northeast-1"
-AGENT_RUNTIME_ARN = "arn:aws:bedrock-agentcore:ap-northeast-1:975050047634:runtime/agent_without_dynamo-sjpnso2uNr"  # デプロイ後に設定
+AGENT_RUNTIME_ARN = "arn:aws:bedrock-agentcore:ap-northeast-1:xxxxxxxxxxxx:runtime/<Runtime ID>"  # デプロイ後に設定
 
 # ========================================
 # ユーティリティ
