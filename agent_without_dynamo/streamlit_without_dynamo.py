@@ -5,7 +5,7 @@ Strands Agents HITL + AgentCore Runtime - Streamlit UI (DynamoDB無しバージ�
 HITLワークフローを管理するWebインターフェース。
 
 DynamoDB無しバージョンに対応:
-- ローカルモード: http://localhost:8080 を直接呼び出し
+- ローカルモード: http://localhost:9080 を直接呼び出し
 - AWSモード: boto3 SDKでAgentCore Runtimeを呼び出し
 """
 
