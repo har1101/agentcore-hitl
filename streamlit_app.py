@@ -38,7 +38,7 @@ def utc_to_jst(utc_str: str) -> str:
 # 設定
 # ========================================
 AWS_REGION = "ap-northeast-1"
-AGENT_RUNTIME_ARN = "arn:aws:bedrock-agentcore:ap-northeast-1:975050047634:runtime/agent-iXxA6XCZ6b"
+AGENT_RUNTIME_ARN = "arn:aws:bedrock-agentcore:ap-northeast-1:xxxxxxxxxxxx:runtime/<agent-id>"
 
 # ========================================
 # AgentCore SDK クライアント
